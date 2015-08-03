@@ -3,6 +3,10 @@
 require 'mini_exiftool'
 
 def rename(from, to)
+  if from == to
+    puts "#{from} already has correct name, nothing to do..."
+    return
+  end
   raise "File #{to} already existing" if File.file?(to)
   puts "Rename " + from + " to " + to
   File.rename(from, to)
