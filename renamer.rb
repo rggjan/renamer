@@ -20,7 +20,7 @@ Dir.foreach(".") do |item|
   next unless [".jpg", ".mts", ".arw"].include? extension
   # do work on real items
   File.open(item) do |file|
-    name = [MiniExiftool.new(item).date_time_original.strftime("%Y-%m-%d %H:%M:%S"), extension]
+    name = [MiniExiftool.new(item).date_time_original.strftime("%Y-%m-%d %H_%M_%S"), extension]
     if counts[name].nil?
       counts[name] = [item]
     else
